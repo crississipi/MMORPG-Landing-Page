@@ -1,0 +1,26 @@
+import React from 'react'
+import Image from "next/image";
+
+interface BackgroundProps {
+    bg: string[];
+    reversed: boolean;
+}
+const Background:React.FC<BackgroundProps> = ({ bg, reversed }) => {
+  return (
+    <div className={`absolute h-[230%] w-[120%] grid grid-cols-5 ${reversed ? '-rotate-45' : 'rotate-45'} overflow-hidden top-1/2 left-1/2 -translate-1/2`}>
+      <span className='col-span-2 object-cover h-full overflow-hidden relative'>
+        <Image priority src='/images/background/blindswordsman-bg.png' alt="img" height={1000} width={1000} className={`absolute top-1/2 left-1/2 -translate-1/2 object-cover h-full min-w-[150%] ${reversed ? 'rotate-45' : '-rotate-45'}`}/>
+      </span>
+    
+      <span className='col-span-1 object-cover h-full overflow-hidden relative'>
+        <Image priority src='/images/background/frostprincess-bg.png' alt="img" height={1000} width={1000} className={`absolute top-1/2 left-1/2 -translate-1/2 object-cover h-full min-w-[350%] ${reversed ? 'rotate-45' : '-rotate-45'}`}/>
+      </span>
+    
+      <span className='col-span-2 object-cover h-full overflow-hidden relative'>
+        <Image priority src='/images/background/asuragiant-bg.png' alt="img" height={1000} width={1000} className={`absolute top-1/2 left-1/2 -translate-1/2 object-cover h-full min-w-[150%] ${reversed ? 'rotate-45' : '-rotate-45'}`}/>
+      </span>
+    </div>
+  )
+}
+
+export default Background

@@ -1,15 +1,29 @@
 @import "tailwindcss";
 
+* {
+  outline: none !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+::-webkit-scrollbar { width: 0px !important; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0); border-radius: 10px; }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-protest-guerrilla: "Protest Guerrilla", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+  --color-rock: #0b0c05;
+  --color-snow: #1f3545;
+  --color-volcano: #3a0e01;
+  --color-fog: #0e2910;
+  --color-moss: #4a4116;
+  --color-haunted: #140d00;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +36,86 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-outline-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2)
+}
+
+.rock-gradient::before {
+  background-color: #ffffff;
+  background: radial-gradient(
+    circle, 
+    rgba(11, 12, 5, 0.8) 0%,
+    rgba(11, 12, 5, 0) 70%
+  );
+} 
+
+.snow-gradient::before {
+  background-color: #ffffff;
+  background: radial-gradient(
+    circle, 
+    rgba(31, 53, 69, 0.8) 0%,
+    rgba(31, 53, 69, 0) 70%
+  );
+} 
+
+.volcano-gradient::before {
+  background-color: #ffffff;
+  background: radial-gradient(
+    circle, 
+    rgba(58, 14, 1, 0.8) 0%,
+    rgba(58, 14, 1, 0) 70%
+  );
+} 
+
+.fog-gradient::before {
+  background-color: #ffffff;
+  background: radial-gradient(
+    circle, 
+    rgba(14, 41, 16, 0.8) 0%,
+    rgba(14, 41, 16, 0) 70%
+  );
+} 
+
+.warm-gradient::before {
+  background-color: #ffffff;
+  background: radial-gradient(
+    circle, 
+    rgba(74, 65, 22, 0.8) 0%,
+    rgba(74, 65, 22, 0) 70%
+  );
+} 
+
+.eerie-gradient::before {
+  background-color: #ffffff;
+  background: radial-gradient(
+    circle, 
+    rgba(20, 13, 0, 0.8) 0%,
+    rgba(20, 13, 0, 0) 70%
+  );
+} 
+
+.main-gradient {
+  background-color: transparent;
+  background: radial-gradient(
+            circle at bottom,
+            rgba(11, 12, 5, 1) 0%,
+            rgba(31, 53, 69, 1) 6.67%,
+            rgba(58, 14, 1, 1) 13.33%,
+            rgba(14, 41, 16, 1) 20%,
+            rgba(74, 65, 22, 1) 26.67%,
+            rgba(20, 13, 0, 1) 33.33%,
+            black 60%
+          );
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+.for-img {
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
