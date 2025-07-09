@@ -15,13 +15,12 @@ const Header = () => {
         />
       </a>
       <div className='flex'>
-        <NavBtn name='About' link={'about'} />
         <NavBtn name='Characters' link={'characters'} />
+        <NavBtn name='About' link={'about'} />
       </div>
       <div className='flex'>
-        <NavBtn name='Early Registration' link={'download'} />
+        <NavBtn name='Early Registration' link={'register'} />
         <NavBtn name='Be a Patron' link={'patron'} />
-        <NavBtn name='Contact Us' link={'contact'} />
       </div>
     </div>
   )

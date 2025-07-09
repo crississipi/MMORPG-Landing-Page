@@ -3,14 +3,12 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
-import { RiScales3Fill, RiTShirt2Fill, RiUserSmileFill, RiVipCrown2Fill } from 'react-icons/ri';
+import { RiScales3Fill, RiTShirt2Fill, RiUserSmileFill, RiVipCrown2Fill, RiVolumeMuteLine, RiVolumeUpLine } from 'react-icons/ri';
 import { IoTicket } from 'react-icons/io5';
 import Equipment from './Equipment';
 import { GiStarShuriken } from 'react-icons/gi';
 import Stat from './Stat';
-import { Stats } from 'fs';
 import Info from './Info';
-import { audio } from 'framer-motion/client';
 
 const characterInfo = [
     {
@@ -397,27 +395,100 @@ interface CharacterHolderProps {
 
 const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
   const [infoBtn, setInfoBtn] = useState("info");
-  
+  const [audioMuted, isAudioMuted] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playing, isPlaying] = useState(false);
+
   const toggleInfoBtn = (tag: string) => {
     setInfoBtn(tag);
   }
 
+  useEffect(() => {
+    const audio = document.getElementById('voiceOver') as HTMLAudioElement | null;
+    if (!audio) return;
+
+    const handleEnded = () => {
+      setTimeout(() => {
+        audio.play();
+      }, 3000);
+    };
+    audio.addEventListener('ended', handleEnded);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && audio) {
+          audio.play().catch((err) => {
+            console.warn('Audio play blocked:', err);
+          });
+        }
+      },
+      {
+        threshold: 1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  const toggleMute = () => {
+    const aud = audioRef.current;
+    if (!aud) return;
+    if (!playing) {
+        aud.play();
+        isPlaying(true);
+    } 
+    isAudioMuted(!audioMuted);
+    aud.muted = audioMuted;
+    if (audioMuted) {
+        document.getElementById('noticeText')?.classList.add('show-notice');
+    } else {
+        document.getElementById('noticeText')?.classList.remove('show-notice');
+    }
+  };
+
   return (
     <AnimatePresence>
-        <div className='h-full w-full grid grid-cols-5 relative px-17'>
-            <div className='col-span-1 h-full flex flex-col z-50'>
+        <audio ref={audioRef} key={charac} id='voiceOver'>
+          <source src={`/voice-overs/voiceover-${charac+1}.mp3`} type="audio/mpeg"  />
+        </audio>
+        <div ref={containerRef} className='h-full w-full grid grid-cols-5 relative px-17'>
+            <div className='col-span-1 h-full flex flex-col z-50 relative'>
+                <div className='h-auto w-[140%] absolute overflow-hidden left-full flex items-center rounded-full'>
+                    <button className='text-lg p-1.5 w-max top-3 rounded-full px-1.5 cursor-pointer z-50 text-white/30 hover:text-white/50 focus:text-white ease-in-out duration-150 ' onClick={toggleMute}>
+                        { audioMuted ? <RiVolumeUpLine className='text-white'/> : <RiVolumeMuteLine />}
+                    </button>
+                    <motion.span
+                        id='noticeText'
+                        initial={{ x: -999 }}
+                        className='text-sm absolute pl-10 py-1.5 pr-3 z-30 text-nowrap rounded-full bg-black/50'>Unmute audio for more immersive experience.
+                    </motion.span>
+                </div>
+
                 <motion.h2 
                     initial={{ filter: 'blur(10px)', opacity: 0 }} 
                     animate={{ filter: 'blur(0px)', opacity: 1 }}
                     exit={{ filter: 'blur(10px)', opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className='font-protest-guerrilla text-5xl'>{characterInfo[charac].name}</motion.h2>
+                    className='font-protest-guerrilla text-5xl'>{characterInfo[charac].name}
+                </motion.h2>
                 <motion.h3 
                     initial={{ x: -999, opacity: 0 }} 
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -999, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.2 }}
-                    className='font-manrope text-lg font-extralight border-t border-white/20 w-7/10 mt-2 mb-5'>{characterInfo[charac].title}</motion.h3>
+                    className='font-manrope text-lg font-extralight border-t border-white/20 w-7/10 mt-2 mb-5'>{characterInfo[charac].title}
+                </motion.h3>
                 <span className='col-span-full flex gap-1 items-center text-base'><GiStarShuriken className='text-base'/>Base Stats</span>
                 <div className='w-full flex flex-col px-2'>
                     {Array.from({ length: 9 }).map((_, i) => (

@@ -35,7 +35,6 @@ const characBG = [
 const Characters = () => {
   const [currCharac, setCurrCharac] = useState(0);
   const [showNext, setShowNext] = useState(true);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleShowNext = () => {
     setShowNext(false);
@@ -43,7 +42,6 @@ const Characters = () => {
   };
 
   const toggleCurrCharac = (direction: string) => {
-    audioRef.current?.play();
     handleShowNext();
     if (direction === "left") {
       if (currCharac - 1 < 0) {setCurrCharac(5)}
@@ -54,25 +52,9 @@ const Characters = () => {
     }
   }
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const handleEnded = () => {
-      setTimeout(() => {
-        audio.play();
-      }, 3000);
-    };
-
-    audio.addEventListener('ended', handleEnded);
-
-    return () => {
-      audio.removeEventListener('ended', handleEnded);
-    };
-  }, []);
 
   return (
-    <section id='characters' className={`text-white pt-24 pb-5 text-sm relative overflow-hidden before:h-1/4 before:w-full before:absolute before:bg-gradient-to-t before:bottom-0 before:from-${characBG[currCharac].gradient} before:to-transparent before:z-50`}>
+    <section id='characters' className={`text-white pt-24 pb-5 text-sm relative overflow-hidden before:h-1/6 before:w-full before:absolute before:bg-gradient-to-t before:bottom-0 before:from-black before:to-transparent before:z-50 after:h-1/6 after:w-full after:absolute after:bg-gradient-to-b after:top-0 after:from-black after:to-transparent`}>
       <div className='h-full w-full absolute overflow-hidden inset-0 flex items-center justify-between'>
         <button className='absolute z-50 text-7xl left-3 animate-pulse cursor-pointer rounded-md bg-white/10 w-8 flex hover:animate-none hover:bg-white/40 focus:bg-white/70 ease-in-out duration-200' onClick={() => toggleCurrCharac("left")}>
           <HiOutlineChevronLeft className='scale-125'/>
@@ -83,14 +65,7 @@ const Characters = () => {
         </button>
       </div>
       
-      {showNext && (
-        <>
-          <CharacterHolder charac={currCharac}/>
-          <audio autoPlay loop ref={audioRef}>
-            <source src={`/voice-overs/voiceover-${currCharac+1}.mp3`} type="audio/mpeg"  />
-          </audio>
-        </>
-      )}
+      {showNext && ( <CharacterHolder charac={currCharac}/>)}
 
       
     </section>

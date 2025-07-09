@@ -119,3 +119,19 @@ section {
   pointer-events: none;
   -webkit-user-drag: none;
 }
+
+@keyframes show {
+  0% {
+    transform: translateX(-500px);
+  }
+  5%, 45% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-500px);
+  }
+}
+
+.show-notice {
+  animation: show 10s ease-in-out infinite;
+}
