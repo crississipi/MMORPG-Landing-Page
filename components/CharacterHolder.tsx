@@ -30,11 +30,11 @@ const characterInfo = [
                 <br /><br />
                 But loyalty is a fragile blade, and his was shattered in blood.
                 <br /><br />
-                While guarding a diplomatic envoy to the Nostre Empire, Ginjiro's world was torn apart. In his absence, his homeland was razed by the ruthless Crowan Marauder Mercenaries. His clan, every brother, sister, elder, and child were slaughtered without mercy. The earth he once vowed to protect soaked in the blood of his kin.
+                While guarding a diplomatic envoy to the Nostre Empire, Ginjiro&apos;s world was torn apart. In his absence, his homeland was razed by the ruthless Crowan Marauder Mercenaries. His clan, every brother, sister, elder, and child were slaughtered without mercy. The earth he once vowed to protect soaked in the blood of his kin.
                 <br/><br/>
                 The act was branded as an unprovoked invasion by the Trieka Conglomerate, a tragedy no one saw coming. Reverend Khan expressed horror. He sent reinforcements, but they were too late, conveniently too late.
                 <br/><br/>
-                Ginjiro, consumed by loss, hunted down the mercenaries with the cold precision of a demon unchained. One by one, he tore through them, ripping apart camps, interrogating those who survived the wrath of his vengeance using hot steel and fire, bathing in the vengeance that coursed through his veins. In their final lair, buried in stolen documents, he uncovered the truth: his master&#39;s signature, Reverend Khan's agreement with the Trieka Conglomerate to sacrifice Ginjiro&#39;s clan under the lie of war.
+                Ginjiro, consumed by loss, hunted down the mercenaries with the cold precision of a demon unchained. One by one, he tore through them, ripping apart camps, interrogating those who survived the wrath of his vengeance using hot steel and fire, bathing in the vengeance that coursed through his veins. In their final lair, buried in stolen documents, he uncovered the truth: his master&#39;s signature, Reverend Khan&apos;s agreement with the Trieka Conglomerate to sacrifice Ginjiro&#39;s clan under the lie of war.
                 <br/><br/>
                 The betrayal was deliberate. His loyalty, manipulated. His people, exterminated like pawns.
                 <br/><br/>
@@ -100,9 +100,9 @@ const characterInfo = [
                 <br /><br />
                 Elves do not speak names. They communicate through essence. But when a child is born with unmatched vitality, they are given one. A tradition reserved for the rare, the gifted.
                 <br /><br />
-                From a glowing fruit sac beneath the dying canopy, a child emerged. The moment her skin touched the cold air, a gentle frost pulsed outward, calming the storm and easing the Divine Tree's pain. The tribe named her Diana Everwinter.
+                From a glowing fruit sac beneath the dying canopy, a child emerged. The moment her skin touched the cold air, a gentle frost pulsed outward, calming the storm and easing the Divine Tree&apos;s pain. The tribe named her Diana Everwinter.
                 <br/><br/>
-                With pale skin and breath like starlit mist, Diana was no ordinary elf. Her frost was not the cruel blizzard, it was balance. As she grew, she absorbed the storm's fury into herself, easing the land&#39;s torment, sacrificing her warmth to keep the tree alive.
+                With pale skin and breath like starlit mist, Diana was no ordinary elf. Her frost was not the cruel blizzard, it was balance. As she grew, she absorbed the storm&apos;s fury into herself, easing the land&#39;s torment, sacrificing her warmth to keep the tree alive.
                 <br/><br/>
                 But when the Holitzer Boundary collapsed, demons from the Great Expanse poured into their land. Now, Diana not only holds back the endless storm, but also faces the horrors of invasion, her body etched with crystalline scars from years of shielding her people.
                 <br/><br/>
@@ -276,13 +276,13 @@ const characterInfo = [
                 <br /><br />
                 But the stars had grown restless.
                 <br /><br />
-                Night after night, Zhang Yuxuan stood alone beneath the dome's open eye, staring at a sky he no longer understood. The constellations shifted, rearranging themselves in ways forbidden by the old celestial orders. The Prophecy of Ash, buried in seven locked volumes, had begun to unfold in reverse. The Cards of Falling Dust, when drawn, repeated only one symbol: calamity. And in every vision, one truth loomed, the world was breaking, and only he knew how soon.
+                Night after night, Zhang Yuxuan stood alone beneath the dome&apos;s open eye, staring at a sky he no longer understood. The constellations shifted, rearranging themselves in ways forbidden by the old celestial orders. The Prophecy of Ash, buried in seven locked volumes, had begun to unfold in reverse. The Cards of Falling Dust, when drawn, repeated only one symbol: calamity. And in every vision, one truth loomed, the world was breaking, and only he knew how soon.
                 <br/><br/>
                 The weight was unbearable.
                 <br/><br/>
-                He had seen a thousand paths, and each one ended in fire, plague, or silence. The knowledge that once fed his brilliance now poisoned his peace. He spoke to no one, wrote no letters, and ignored the Emperor's pleas for counsel. Within the dome, he tore through scroll after scroll, tracing old myths, forgotten names, and cosmic alignments. His hair turned white, his voice cracked from silence, and his eyes, once sharp and calm — now flickered with dread.
+                He had seen a thousand paths, and each one ended in fire, plague, or silence. The knowledge that once fed his brilliance now poisoned his peace. He spoke to no one, wrote no letters, and ignored the Emperor&apos;s pleas for counsel. Within the dome, he tore through scroll after scroll, tracing old myths, forgotten names, and cosmic alignments. His hair turned white, his voice cracked from silence, and his eyes, once sharp and calm — now flickered with dread.
                 <br/><br/>
-                "Why grant me knowledge," he once whispered to a godless sky, "if none will listen in time?"
+                &quot;Why grant me knowledge,&quot; he once whispered to a godless sky, &quot;if none will listen in time?&quot;
                 <br/><br/>
                 And yet, even in despair, Zhang Yuxuan would not rest. Beneath flickering candlelight, he penned warnings to the future in invisible ink, locked predictions inside puzzle-boxes, and sealed his soul into the final book, a tome that no one can open without first solving the riddle of the stars. For he knew he would not live to see salvation, only plant its seed.
                 <br/><br/>
@@ -340,15 +340,15 @@ const characterInfo = [
             <>
                 Long ago, in the twilight years of the fallen kingdom of Zeitir, the name Javan Walters lit every ballroom and corridor like a morning sun. Born into nobility and grace, he was a boy of angelic beauty and golden charm, the pride of the once-revered House Walters. Though young, he carried the dignity of kings and the kindness of poets. Magic came to him like breath, and even the Grandmaster Wizard Halbrecht took him as a personal apprentice, declaring Javan a prodigy unlike any before.
                 <br /><br />
-                At the Festival of Luminous Eclipses, a ceremonial ball was held in the royal palace, laughter echoing, chandeliers swaying, and noble gowns blooming like flowers. At the center of the great hall, Javan sat by the grand piano, weaving joy from keys of ivory, his fingers dancing as if the stars whispered through them. Yet beneath the elegance, whispers began to stir: the Duke Monsen's daughter, heir to one of the most powerful houses, was to be wed to Javan. The crowd murmured in awe. But in the shadows, someone watched with clenched fists.
+                At the Festival of Luminous Eclipses, a ceremonial ball was held in the royal palace, laughter echoing, chandeliers swaying, and noble gowns blooming like flowers. At the center of the great hall, Javan sat by the grand piano, weaving joy from keys of ivory, his fingers dancing as if the stars whispered through them. Yet beneath the elegance, whispers began to stir: the Duke Monsen&apos;s daughter, heir to one of the most powerful houses, was to be wed to Javan. The crowd murmured in awe. But in the shadows, someone watched with clenched fists.
                 <br /><br />
-                Prince Sanders, a creature of pride and poisonous envy, had long obsessed over the Duke's daughter. He had danced, painted, and flattered to no avail. And now, the boy who did nothing but smile and play music would have her? No. That night, he summoned his men, men who knew how to make pain eternal. He didn't want Javan dead. He wanted his beauty gone, forever.
+                Prince Sanders, a creature of pride and poisonous envy, had long obsessed over the Duke&apos;s daughter. He had danced, painted, and flattered to no avail. And now, the boy who did nothing but smile and play music would have her? No. That night, he summoned his men, men who knew how to make pain eternal. He didn&apos;t want Javan dead. He wanted his beauty gone, forever.
                 <br /><br />
-                As the last guests departed and the lights dimmed, corroding poison, a vile concoction forged by curse and acid, was thrown upon Javan's face. His screams echoed once, then silence. Skin melted. Eyes clouded. Ears bled. Tongue swelled and shriveled. He lived, but his radiance was gone. Not even sacred blessings could restore him. His face, once adored by all, now inspired only horror. Even his parents, once beaming with pride, turned away from him in shame.
+                As the last guests departed and the lights dimmed, corroding poison, a vile concoction forged by curse and acid, was thrown upon Javan&apos;s face. His screams echoed once, then silence. Skin melted. Eyes clouded. Ears bled. Tongue swelled and shriveled. He lived, but his radiance was gone. Not even sacred blessings could restore him. His face, once adored by all, now inspired only horror. Even his parents, once beaming with pride, turned away from him in shame.
                 <br/><br/>
                 From that night on, Javan never spoke again.
                 <br/><br/>
-                Whispers crept through the castle of Baron Walters. Maids complained of a child's voice muttering incomprehensible curses behind walls. Candles flickered in rooms long sealed. Then the disappearances began. A servant girl was found boiled alive in the cauldron, her hands still clutching her apron. Guards went mad overnight, drawing circles with strange runes on the stone floor. Something was growing, feeding, in the basement.
+                Whispers crept through the castle of Baron Walters. Maids complained of a child&apos;s voice muttering incomprehensible curses behind walls. Candles flickered in rooms long sealed. Then the disappearances began. A servant girl was found boiled alive in the cauldron, her hands still clutching her apron. Guards went mad overnight, drawing circles with strange runes on the stone floor. Something was growing, feeding, in the basement.
                 <br/><br/>
                 When the kingdom of Zeitir eventually fell, none returned for Javan. None searched the haunted house of the Walters, nor the lands that died around it. The forest retreated. Flowers wilted. And over time, legends spread of a figure with a twisted, grinning pumpkin head, lurking by the cracked windows of the abandoned manor, its carved eyes glowing faint green, its voice still whispering, lost in a cursed loop of childhood pain.
                 <br/><br/>
@@ -404,42 +404,42 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
     setInfoBtn(tag);
   }
 
-  useEffect(() => {
+    useEffect(() => {
     const audio = document.getElementById('voiceOver') as HTMLAudioElement | null;
-    if (!audio) return;
+    const container = containerRef.current;
+
+    if (!audio || !container) return;
 
     const handleEnded = () => {
-      setTimeout(() => {
-        audio.play();
-      }, 3000);
+        setTimeout(() => {
+        audio.play().catch((err) => {
+            console.warn('Replay failed:', err);
+        });
+        }, 3000);
     };
+
     audio.addEventListener('ended', handleEnded);
 
     const observer = new IntersectionObserver(
-      (entries) => {
+        (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting && audio) {
-          audio.play().catch((err) => {
+        if (entry.isIntersecting) {
+            audio.play().catch((err) => {
             console.warn('Audio play blocked:', err);
-          });
+            });
         }
-      },
-      {
-        threshold: 1,
-      }
+        },
+        { threshold: 1 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    observer.observe(container);
 
     return () => {
-      audio.removeEventListener('ended', handleEnded);
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
+        audio.removeEventListener('ended', handleEnded);
+        observer.unobserve(container);
     };
-  }, []);
+    }, []);
+
 
   const toggleMute = () => {
     const aud = audioRef.current;

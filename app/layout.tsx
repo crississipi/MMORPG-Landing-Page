@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Protest_Guerrilla, Manrope } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 
 const protestGuerrilla = Protest_Guerrilla({
   weight: '400',
