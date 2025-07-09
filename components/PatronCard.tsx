@@ -1,5 +1,5 @@
 import React from 'react'
-import { HiCheck, HiX } from 'react-icons/hi'
+import { HiCheck } from 'react-icons/hi'
 
 interface PatronCardProps {
     name: string;

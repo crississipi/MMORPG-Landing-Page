@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Image from "next/image";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi2';
 import CharacterHolder from './CharacterHolder';

@@ -4,8 +4,7 @@ import React, { useState } from 'react'
 import Background from './Background'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebook } from 'react-icons/fa'
-import { HiCheck, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi2'
-import next from 'next'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi2'
 import CustomCheckbox from './CustomCheckbox'
 
 const Registration = () => {
