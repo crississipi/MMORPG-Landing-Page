@@ -135,3 +135,19 @@ section {
 .show-notice {
   animation: show 10s ease-in-out infinite;
 }
+
+@keyframes displayBtn {
+  0% {
+    transform: translateX(500px);
+  }
+  15%, 55% {
+    transform: translateX(0);
+  }
+  70%, 100% {
+    transform: translateX(500px);
+  }
+}
+
+.display-btn {
+  animation: displayBtn 10s ease-in-out infinite;
+}

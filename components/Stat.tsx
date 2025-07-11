@@ -15,8 +15,8 @@ const Stat: React.FC<StatProps> = ({ type, amount, delay }) => {
       exit={{ x: 999, filter: 'blur(20px)' }}
       transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.3 + delay }}
       className='w-full flex justify-between px-3 py-0.5'>
-      <span className='col-span-1 font-extralight'>{type}</span>
-      <span className='col-span-1 font-medium text-right'>{amount}</span>
+      <span className='col-span-1 font-extralight font-manrope'>{type}</span>
+      <span className='col-span-1 font-medium text-right font-manrope'>{amount}</span>
     </motion.p>
   )
 }

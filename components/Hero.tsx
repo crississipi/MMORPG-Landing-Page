@@ -1,73 +1,76 @@
-import React from 'react'
-import ImageDisplay from './ImageDisplay'
+"use client";
 
-const character = [
-  {
-    bgSrc: '/images/background/blindswordsman-bg.png',
-    heroSrc: '/images/characters/blindswordsman.png',
-    title: 'The Blind Samurai',
-    name: 'Ginjiro Tsukikage',
-    zoom: 'min-w-[130%] max-w-[130%]',
-    gradient: 'volcano-gradient'
-  },
-  {
-    bgSrc: '/images/background/frostprincess-bg.png',
-    heroSrc: '/images/characters/frostprincess.png',
-    title: 'The Frost Maiden',
-    name: 'Diana Everwinter',
-    zoom: 'min-w-[100%]',
-    gradient: 'snow-gradient'
-  },
-  {
-    bgSrc: '/images/background/asuragiant-bg.png',
-    heroSrc: '/images/characters/asuragiant.png',
-    title: 'The Ancient Asura',
-    name: 'Grok the Champion',
-    zoom: 'min-w-[150%]',
-    gradient: 'rock-gradient'
-  },
-  {
-    bgSrc: '/images/background/lizardshaman-bg.png',
-    heroSrc: '/images/characters/lizardshaman-bg.png',
-    title: 'The Last Shaman',
-    name: 'Master Salazar',
-    zoom: 'min-w-[115%]',
-    gradient: 'fog-gradient'
-  },
-  {
-    bgSrc: '/images/background/greatscholar-bg.png',
-    heroSrc: '/images/characters/greatscholar.png',
-    title: 'The Great Scholar',
-    name: 'Zhang Yuxuan',
-    zoom: 'min-w-[145%] top-4/5',
-    gradient: 'warm-gradient'
-  },
-  {
-    bgSrc: '/images/background/pumpkinhead-bg.png',
-    heroSrc: '/images/characters/pumpkinhead.png',
-    title: 'The Wicked',
-    name: 'Baron Pumpkin',
-    zoom: 'min-w-[150%] top-6/7 left-2/5',
-    gradient: 'eerie-gradient'
-  },
-]
+import React, { useEffect, useState } from 'react';
+import ImageDisplay from './ImageDisplay';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [nextChar, setNextChar] = useState(false);
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      const width = window.innerWidth;
+
+      setIsMobile(width <= 768);
+    };
+    updateScreenSize();
+
+    window.addEventListener('resize', updateScreenSize);
+
+    const interval = setInterval(() => {
+      setNextChar(false);
+
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % 6);
+        setNextChar(true);
+      }, 1000);
+    }, 7000);
+
+    return () => {
+       window.removeEventListener('resize', updateScreenSize);
+       clearInterval(interval);
+    }
+  }, []);
+
   return (
-    <section id='home' className='flex flex-nowrap overflow-hidden relative after:h-1/7 after:w-full after:absolute after:bottom-0 after:z-40 after:bg-gradient-to-t after:from-black  after:to-transparent'>
-      {character.map((char, i) => (
-        <ImageDisplay 
-          key={i}
-          bgSrc={char.bgSrc} 
-          heroSrc={char.heroSrc} 
-          title={char.title} 
-          name={char.name} 
-          zoom={char.zoom}
-          gradient={char.gradient}      
-        />
-      ))}
+    <section id='home' className='flex items-end justify-between overflow-hidden relative after:h-1/7 after:w-full after:absolute after:bottom-0 after:z-40 after:bg-gradient-to-t after:from-black  after:to-transparent'>
+      {!isMobile ? (
+        <div className={`h-full w-auto flex flex-nowrap transition-transform`}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <ImageDisplay 
+              key={i}
+              charac={i}
+              onMobile={false}
+            />
+          ))}
+        </div>
+      ) : (
+        nextChar && (
+          <AnimatePresence mode='wait'>
+            <motion.div
+              initial={{ opacity:0, filter: "blur(10px)" }}
+              animate={{ opacity:1, filter: "blur(0px)" }}
+              exit={{ opacity:0, filter: "blur(10px)" }}
+              transition={{ duration:0.5, ease:'easeInOut'}}
+              className='h-full w-full relative'
+            >
+              <ImageDisplay 
+                charac={index}
+                onMobile={true}
+              />
+            </motion.div>
+          </AnimatePresence>
+        )
+      )}
+      <div className='md:hidden h-10 w-max absolute z-50 bottom-10 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3'>
+        {Array.from({ length: 6}).map((_, i) => (
+          <span key={i} className={`${index === i ? 'scale-250 bg-white' : 'scale-100 bg-white/40'} h-1.5 w-1.5 rounded-full ease-in-out duration-500`}></span>
+        ))}
+      </div>
     </section>
-  )
+  );
 }
 
 export default Hero

@@ -31,9 +31,10 @@ const PatronInfo = [
 
 const Patron = () => {
   return (
-    <section id='patron' className='text-white text-5xl font-protest-guerrilla px-10 pb-10 flex flex-col items-center gap-10 relative overflow-hidden before:absolute before:h-full before:w-full before:top-0 before:left-0 before:bg-gradient-to-t before:from-black before:via-black/20 before:to-black before:z-10 font-extralight'>
+    <section id='patron' className='text-white text-5xl font-protest-guerrilla px-5 md:px-10 md:pb-10 flex flex-col items-center gap-10 relative overflow-hidden before:absolute before:h-full before:w-full before:top-0 before:left-0 before:bg-gradient-to-t before:from-black before:via-black/20 before:to-black before:z-10 font-extralight'>
       <Background bg={["/images/background/blindswordsman-bg.png", "/images/background/frostprincess-bg.png", "/images/background/asuragiant-bg.png"]} reversed={true} />
-      <div className='w-4/5 h-4/5 grid grid-cols-3 gap-3 mt-auto'>
+      <h2 className='pt-24 z-50'>Patron Pass</h2>
+      <div className='overflow-x-hidden w-full md:w-4/5 h-4/5 grid grid-cols-1 md:grid-cols-3 gap-3 mt-auto pb-20 md:pb-0 before:h-1/4 before:w-full before:absolute before:bottom-0 before:left-0 before:rounded-b-2xl before:bg-gradient-to-t before:from-black before:to-transparent before:z-60'>
         {PatronInfo.map((info, i) => (
             <PatronCard key={i} name={info.name} amount={info.amount} gradient={info.gradient} border={info.border} color={info.color} included={info.included} />
         ))}

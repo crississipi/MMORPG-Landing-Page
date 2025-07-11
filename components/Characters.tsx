@@ -56,11 +56,11 @@ const Characters = () => {
   return (
     <section id='characters' className={`text-white pt-24 pb-5 text-sm relative overflow-hidden before:h-1/6 before:w-full before:absolute before:bg-gradient-to-t before:bottom-0 before:from-black before:to-transparent before:z-50 after:h-1/6 after:w-full after:absolute after:bg-gradient-to-b after:top-0 after:from-black after:to-transparent`}>
       <div className='h-full w-full absolute overflow-hidden inset-0 flex items-center justify-between'>
-        <button className='absolute z-50 text-7xl left-3 animate-pulse cursor-pointer rounded-md bg-white/10 w-8 flex hover:animate-none hover:bg-white/40 focus:bg-white/70 ease-in-out duration-200' onClick={() => toggleCurrCharac("left")}>
+        <button className='absolute z-60 text-5xl md:text-7xl left-3 animate-pulse cursor-pointer rounded-md bg-white/10 w-8 flex hover:animate-none hover:bg-white/40 focus:bg-white/70 focus:ring-1 ease-in-out duration-200' onClick={() => toggleCurrCharac("left")}>
           <HiOutlineChevronLeft className='scale-125'/>
         </button>
         <Image priority src={characBG[currCharac].bg} alt='bg' height={1000} width={1000} className='h-full w-full object-cover object-center for-img'/>
-        <button className='absolute z-50 text-7xl right-3 animate-pulse cursor-pointer rounded-md bg-white/10 w-8 flex hover:animate-none hover:bg-white/40 focus:bg-white/70 ease-in-out duration-200' onClick={() => toggleCurrCharac("right")}>
+        <button className='absolute z-60 text-5xl md:text-7xl right-3 animate-pulse cursor-pointer rounded-md bg-white/10 w-8 flex hover:animate-none hover:bg-white/40 focus:bg-white/70 focus:ring-1 ease-in-out duration-200' onClick={() => toggleCurrCharac("right")}>
           <HiOutlineChevronRight className='scale-125'/>
         </button>
       </div>

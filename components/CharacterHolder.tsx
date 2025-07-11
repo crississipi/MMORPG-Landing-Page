@@ -16,7 +16,7 @@ const characterInfo = [
         title: 'The Blind Samurai',
         stats: [ 
             ["Life Force", "Power", "Tenacity", "Endurance", "Agility", "Accuracy", "Intelligence", "Luck", "Qi Energy"],
-            ["560","115","240","300", "400 (430)", "280", "60", "45", "125"]
+            ["560","115","240","300", "400", "280", "60", "45", "125"]
         ],
         afinity: [
             ["Moon", "Wind"],
@@ -151,7 +151,7 @@ const characterInfo = [
         afinity: [
             ["Fire", "Earth"],
             [<>+10% <span className='font-extralight italic'>in fire damage</span></>, <>+30% <span className='font-extralight italic'>tenacity</span></>],
-            ["text-red-400", "text-stone-700"]
+            ["text-red-400", "text-stone-400"]
         ],
         characImg: '/images/characters/asuragiant.png',
         aboutInfo: 
@@ -265,7 +265,7 @@ const characterInfo = [
         afinity: [
             ["Time", "Void"],
             [<>+25% <span className='font-extralight italic'> doublecasting chance</span></>, <>+10% <span className='font-extralight italic'> slow to enemies</span></>],
-            ["text-green-500", "text-black"]
+            ["text-green-500", "text-fuchsia-500"]
         ],
         characImg: '/images/characters/greatscholar.png',
         aboutInfo: 
@@ -293,18 +293,18 @@ const characterInfo = [
         clothing: [
             [
                 '/images/items/scholar/tome.png', 
-                'Eyes of the Endless Sky',
-                "Forged from the lenses of a fallen star and framed in silver drawn from the moon's shadow, Zhang Yuxuan's glasses were a gift from the celestial spirits he once communed with in his youth."
+                'The Book That Wrote Itself',
+                "Bound in bark from the world tree and stitched with sinew of forgotten beasts, Zhang's Prophecy Tome was not a book he wrote, but one that wrote through him."
             ], 
             [
                 '/images/items/scholar/robe.png',
-                'The Book That Wrote Itself',
-                "Bound in bark from the world tree and stitched with sinew of forgotten beasts, Zhang's Prophecy Tome was not a book he wrote, but one that wrote through him."
+                "Heaven's Drift",
+                "Allows Zhang to float inches above the ground, not to show grandeur, but because the earth itself had grown too heavy for him to bear."
             ],
             [
                 '/images/items/scholar/eye-glasses.png',
-                "Heaven's Drift",
-                "Heaven's Drift allows Zhang to float inches above the ground, not to show grandeur, but because the earth itself had grown too heavy for him to bear."
+                "Eyes of the Endless Sky",
+                "Forged from the lenses of a fallen star and framed in silver drawn from the moon's shadow, Zhang Yuxuan's glasses were a gift from the celestial spirits he once communed with in his youth."
             ]
         ],
         tendency: [
@@ -405,39 +405,39 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
   }
 
     useEffect(() => {
-    const audio = document.getElementById('voiceOver') as HTMLAudioElement | null;
-    const container = containerRef.current;
+        const audio = document.getElementById('voiceOver') as HTMLAudioElement | null;
+        const container = containerRef.current;
 
-    if (!audio || !container) return;
+        if (!audio || !container) return;
 
-    const handleEnded = () => {
-        setTimeout(() => {
-        audio.play().catch((err) => {
-            console.warn('Replay failed:', err);
-        });
-        }, 3000);
-    };
-
-    audio.addEventListener('ended', handleEnded);
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
+        const handleEnded = () => {
+            setTimeout(() => {
             audio.play().catch((err) => {
-            console.warn('Audio play blocked:', err);
+                console.warn('Replay failed:', err);
             });
-        }
-        },
-        { threshold: 1 }
-    );
+            }, 3000);
+        };
 
-    observer.observe(container);
+        audio.addEventListener('ended', handleEnded);
 
-    return () => {
-        audio.removeEventListener('ended', handleEnded);
-        observer.unobserve(container);
-    };
+        const observer = new IntersectionObserver(
+            (entries) => {
+            const entry = entries[0];
+            if (entry.isIntersecting) {
+                audio.play().catch((err) => {
+                console.warn('Audio play blocked:', err);
+                });
+            }
+            },
+            { threshold: 1 }
+        );
+
+        observer.observe(container);
+
+        return () => {
+            audio.removeEventListener('ended', handleEnded);
+            observer.unobserve(container);
+        };
     }, []);
 
 
@@ -462,10 +462,10 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
         <audio ref={audioRef} key={charac} id='voiceOver'>
           <source src={`/voice-overs/voiceover-${charac+1}.mp3`} type="audio/mpeg"  />
         </audio>
-        <div ref={containerRef} className='h-full w-full grid grid-cols-5 relative px-17'>
-            <div className='col-span-1 h-full flex flex-col z-50 relative'>
-                <div className='h-auto w-[140%] absolute overflow-hidden left-full flex items-center rounded-full'>
-                    <button className='text-lg p-1.5 w-max top-3 rounded-full px-1.5 cursor-pointer z-50 text-white/30 hover:text-white/50 focus:text-white ease-in-out duration-150 ' onClick={toggleMute}>
+        <div ref={containerRef} className='h-[105%] md:h-full w-full grid grid-cols-5 relative px-3 md:px-17 font-manrope'>
+            <div className='col-span-2 md:col-span-1 h-full flex flex-col z-50 relative'>
+                <div className='h-auto w-[200%] md:w-[140%] absolute overflow-hidden top-20 md:left-full flex items-center rounded-full'>
+                    <button className='text-xl md:text-lg p-1.5 w-max top-3 rounded-full px-1.5 cursor-pointer z-50 text-white/30 hover:text-white/50 focus:text-white ease-in-out duration-150 ' onClick={toggleMute}>
                         { audioMuted ? <RiVolumeUpLine className='text-white'/> : <RiVolumeMuteLine />}
                     </button>
                     <motion.span
@@ -480,40 +480,40 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                     animate={{ filter: 'blur(0px)', opacity: 1 }}
                     exit={{ filter: 'blur(10px)', opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className='font-protest-guerrilla text-5xl'>{characterInfo[charac].name}
+                    className='font-protest-guerrilla text-5xl text-nowrap md:text-wrap'>{characterInfo[charac].name}
                 </motion.h2>
                 <motion.h3 
                     initial={{ x: -999, opacity: 0 }} 
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -999, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.2 }}
-                    className='font-manrope text-lg font-extralight border-t border-white/20 w-7/10 mt-2 mb-5'>{characterInfo[charac].title}
+                    className='font-manrope text-lg font-extralight border-t border-white/20 w-full md:w-7/10 mt-2 mb-10 md:mb-5 text-nowrap md:text-wrap'>{characterInfo[charac].title}
                 </motion.h3>
-                <span className='col-span-full flex gap-1 items-center text-base'><GiStarShuriken className='text-base'/>Base Stats</span>
-                <div className='w-full flex flex-col px-2'>
+                <span className='col-span-full flex gap-1 items-center text-sm md:text-base pl-2 md:pl-0'><GiStarShuriken className='text-sm md:text-base'/>Base Stats</span>
+                <div className='w-full flex flex-col pl-5 pr-0 md:px-2 text-xs md:text-sm'>
                     {Array.from({ length: 9 }).map((_, i) => (
                         <Stat key={`stat-${i}`} type={characterInfo[charac].stats[0][i]} amount={characterInfo[charac].stats[1][i]} delay={i/20} />
                     ))}
                 </div>
-                <span className='col-span-full flex gap-1 items-center text-base mt-2'><GiStarShuriken className='text-base'/>Affinity</span>
-                <div className='w-full flex flex-col px-2'>
+                <span className='mt-2 col-span-full flex gap-1 items-center text-sm md:text-base pl-2 md:pl-0'><GiStarShuriken className='text-sm md:text-base'/>Affinity</span>
+                <div className='w-full flex flex-col px-5 md:px-2'>
                     <motion.p 
                     initial={{ x: -999, filter: 'blur(20px)' }} 
                     animate={{ x: 0, filter: 'blur(0px)' }}
                     exit={{ x: 999, filter: 'blur(20px)' }}
                     transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.5 }}
-                    className={`w-full flex justify-between px-3 py-0.5 ${characterInfo[charac].afinity[2][0]}`}>
+                    className={`w-full text-xs md:text-sm flex gap-5 md:gap-0 justify-between px-3 py-0.5 ${characterInfo[charac].afinity[2][0]}`}>
                         <span className='font-extralight'>{characterInfo[charac].afinity[0][0]}</span>
-                        <span className='font-medium text-right'>{characterInfo[charac].afinity[1][0]}</span>
+                        <span className='font-medium text-right text-nowrap'>{characterInfo[charac].afinity[1][0]}</span>
                     </motion.p>
                     <motion.p
                     initial={{ x: -999, filter: 'blur(20px)' }} 
                     animate={{ x: 0, filter: 'blur(0px)' }}
                     exit={{ x: 999, filter: 'blur(20px)' }}
                     transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.55 }}
-                    className={`w-full flex justify-between px-3 py-0.5 ${characterInfo[charac].afinity[2][1]}`}>
+                    className={`w-full text-xs md:text-sm flex gap-5 md:gap-0 justify-between px-3 py-0.5 ${characterInfo[charac].afinity[2][1]}`}>
                         <span className='font-extralight'>{characterInfo[charac].afinity[0][1]}</span>
-                        <span className='font-medium text-right'>{characterInfo[charac].afinity[1][1]}</span>
+                        <span className='font-medium text-right text-nowrap'>{characterInfo[charac].afinity[1][1]}</span>
                     </motion.p>
                 </div>
             </div>
@@ -522,7 +522,7 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
               animate={{ filter: 'blur(0px)', opacity: 1 }}
               exit={{ filter: 'blur(10px)', opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className='col-span-2 h-full flex flex-col z-30 relative'>
+              className='col-span-3 md:col-span-2 h-full flex flex-col z-30 relative items-center justify-center mt-10 md:mt-0'>
                 <motion.div 
                     animate={{ y: [0, -5, 0] }}
                     transition={{
@@ -531,19 +531,19 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                         repeat: Infinity,
                         repeatType: 'loop',
                     }}
-                    className='h-5/6 w-full flex relative'
+                    className='h-5/6 w-full flex relative scale-120 md:scale-100 mr-10 md:mr-0'
                 >
                 <Image priority src={characterInfo[charac].characImg} alt='bg' height={1000} width={1000} className='h-full w-full object-contain object-center scale-150 absolute top-1/4 for-img'/>
                 </motion.div>
             </motion.div>
-            <div className='col-span-2 h-full grid grid-rows-12 gap-3 overflow-hidden z-50'>
-                <div className='row-span-10 w-full gap-1 flex flex-row-reverse overflow-x-hidden relative'>
-                    <div className='h-max w-1/10 backdrop-blur-sm bg-rock/50 border border-white/10 rounded-2xl shadow-xl flex flex-col'>
-                        <button className='text-2xl p-2 py-3 flex items-center justify-center cursor-pointer hover:bg-white/20 rounded-2xl ease-in-out duration-200 text-white/40 hover:text-white/70 focus:bg-white/40 focus:text-white' onClick={() => toggleInfoBtn("info")}><RiUserSmileFill /></button>
-                        <button className='text-2xl p-2 py-3 flex items-center justify-center cursor-pointer hover:bg-white/20 rounded-2xl ease-in-out duration-200 text-white/40 hover:text-white/70 focus:bg-white/40 focus:text-white' onClick={() => toggleInfoBtn("items")}><RiTShirt2Fill /></button>
+            <div className='col-span-full  md:pb-0 md:col-span-2 h-full grid grid-rows-12 gap-3 overflow-hidden z-50'>
+                <div className='row-span-9 md:row-span-10 w-full gap-1 flex flex-col items-end md:items-start md:flex-row-reverse overflow-x-hidden relative'>
+                    <div className='h-max w-max md:w-1/10 mr-20 md:mr-0 backdrop-blur-sm bg-rock/50 border border-white/10 rounded-2xl shadow-xl flex md:flex-col'>
+                        <button className='text-2xl p-2 md:py-3 flex items-center justify-center cursor-pointer hover:bg-white/20 rounded-2xl ease-in-out duration-200 text-white/40 hover:text-white/70 focus:bg-white/40 focus:text-white' onClick={() => toggleInfoBtn("info")}><RiUserSmileFill /></button>
+                        <button className='text-2xl p-2 px-3 md:px-0 md:py-3 flex items-center justify-center cursor-pointer hover:bg-white/20 rounded-2xl ease-in-out duration-200 text-white/40 hover:text-white/70 focus:bg-white/40 focus:text-white' onClick={() => toggleInfoBtn("items")}><RiTShirt2Fill /></button>
                         <button className='text-2xl p-2 py-3 hidden items-center justify-center cursor-pointer hover:bg-white/20 rounded-2xl ease-in-out duration-200 text-white/40 hover:text-white/70 focus:bg-white/40 focus:text-white'><RiScales3Fill /></button>
                     </div>
-                    <div className='h-full w-full backdrop-blur-sm bg-rock/50 border border-white/10 rounded-2xl shadow-xl px-3 py-2 font-extralight text-white/70 tracking-wide overflow-hidden relative flex flex-col before:h-1/4 before:w-full before:absolute before:bottom-0 before:left-0 before:rounded-b-2xl before:bg-gradient-to-t before:from-rock before:to-transparent before:z-50'>
+                    <div className='h-full w-full backdrop-blur-sm bg-rock/50 border border-white/10 rounded-2xl shadow-xl px-3 py-2 font-extralight text-white/70 tracking-wide overflow-hidden relative flex flex-col before:h-1/4 before:w-full before:absolute before:bottom-0 before:left-0 before:rounded-b-2xl before:bg-gradient-to-t before:from-rock before:to-transparent before:z-60'>
                         { infoBtn === "info" && (
                             <Info context={characterInfo[charac].aboutInfo} />
                         )}
@@ -570,12 +570,12 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                 </div>
                 <div className='row-span-2 w-full grid grid-cols-2 gap-x-2 relative'>
                     <span className='col-span-full text-white/70'>You can get this character using</span>
-                    <button className='col-span-1 px-3 py-2 h-min flex items-center gap-2 bg-gradient-to-tr from-violet-400 via-violet-500 to-violet-400 rounded-md border-2 border-purple-600 ml-10 cursor-pointer hover:from-violet-300 hover:via-violet-400 hover:to-violet-300 focus:from-violet-500 focus:via-violet-600 focus:to-violet-500 focus:border-purple-900 ease-in-out duration-200'>
+                    <button className='col-span-1 px-3 py-2.5 h-min flex items-center gap-2 bg-gradient-to-tr from-violet-400 via-violet-500 to-violet-400 rounded-md border-2 border-purple-600 cursor-pointer hover:from-violet-300 hover:via-violet-400 hover:to-violet-300 focus:from-violet-500 focus:via-violet-600 focus:to-violet-500 focus:border-purple-900 ease-in-out duration-200'>
                         <RiVipCrown2Fill className='text-2xl text-amber-400'/>
                         <span className='font-bold tracking-tight text-amber-300'>VIP+++</span> Royalty Pass
                     </button>
 
-                    <button className='col-span-1 px-3 py-2 h-min rounded-md flex items-center border-2 border-white/50 bg-gradient-to-tr mr-10 gap-2 cursor-pointer text-white/70 font-semibold tracking-wide group hover:border-amber-300 hover:text-amber-300 focus:border-amber-500 focus:text-amber-700 focus:bg-white ease-in-out duration-200'><IoTicket className='text-white/70 text-2xl group-hover:text-amber-400 group-focus:text-amber-500 ease-in-out duration-200'/>Early Registration</button>
+                    <button className='col-span-1 px-3 py-2.5 h-min rounded-md flex items-center border-2 border-white/50 bg-gradient-to-tr gap-2 cursor-pointer text-white/70 font-semibold tracking-wide group hover:border-amber-300 hover:text-amber-300 focus:border-amber-500 focus:text-amber-700 focus:bg-white ease-in-out duration-200'><IoTicket className='text-white/70 text-2xl group-hover:text-amber-400 group-focus:text-amber-500 ease-in-out duration-200'/>Early Registration</button>
                 </div>
             </div>
         </div>
