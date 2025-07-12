@@ -44,7 +44,7 @@ const Equipment: React.FC<EquipmentProps> = ({ weapon, armor, acc }) => {
                 alt='item' 
                 height={1000} 
                 width={1000}
-                className={`${weapon.weaponName === "Grievance" && 'mt-10 rotate-45'} max-h-full w-full for-img object-contain object-center`}
+                className={`${weapon.weaponName === "Grievance" && 'mt-10 rotate-45'} ${weapon.weaponName === "Muramasa Dual Blade" && 'mt-5'} max-h-full w-full for-img object-contain object-center`}
               />
             </div>
             <div className='w-3/4 h-full flex flex-col text-white/60 gap-1 pt-0.5'>
@@ -68,7 +68,7 @@ const Equipment: React.FC<EquipmentProps> = ({ weapon, armor, acc }) => {
                 alt='item' 
                 height={1000} 
                 width={1000}
-                className={`${weapon.weaponName === "Grievance" && 'mt-10'} max-h-full w-full for-img object-contain object-center`}
+                className={`${weapon.weaponName === "Grievance" && 'mt-10'} mt-2 max-h-full w-full for-img object-contain object-center`}
               />
             </div>
             <div className='w-3/4 h-full flex flex-col text-white/60 gap-1 pt-0.5'>
@@ -93,7 +93,7 @@ const Equipment: React.FC<EquipmentProps> = ({ weapon, armor, acc }) => {
                   alt='item' 
                   height={1000} 
                   width={1000}
-                  className='max-h-full w-full for-img object-contain object-center'
+                  className='mt-2 max-h-full w-full for-img object-contain object-center'
                 />
               </div>
               <div className='w-3/4 h-full flex flex-col text-white/60 gap-1 pt-0.5'>

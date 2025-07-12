@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
-import { RiScales3Fill, RiTShirt2Fill, RiUserSmileFill, RiVipCrown2Fill, RiVolumeMuteLine, RiVolumeUpLine } from 'react-icons/ri';
+import { RiScales3Fill, RiTShirt2Fill, RiUserSmileFill, RiVolumeMuteLine, RiVolumeUpLine } from 'react-icons/ri';
 import { IoTicket } from 'react-icons/io5';
 import Equipment from './Equipment';
 import { GiCutDiamond, GiQueenCrown, GiStarShuriken } from 'react-icons/gi';
@@ -465,7 +465,7 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
         </audio>
         <div ref={containerRef} className='h-[105%] md:h-full w-full grid grid-cols-5 relative px-3 md:px-17 font-manrope'>
             <div className='col-span-2 md:col-span-1 h-full flex flex-col z-50 relative'>
-                <div className='h-auto w-[200%] md:w-[140%] absolute overflow-hidden top-20 md:left-full flex items-center rounded-full'>
+                <div className='h-auto w-[200%] md:w-[140%] absolute overflow-hidden top-20 md:top-0 md:left-full flex items-center rounded-full'>
                     <button className='text-xl md:text-lg p-1.5 w-max top-3 rounded-full px-1.5 cursor-pointer z-50 text-white/30 hover:text-white/50 focus:text-white ease-in-out duration-150 ' onClick={toggleMute}>
                         { audioMuted ? <RiVolumeUpLine className='text-white'/> : <RiVolumeMuteLine />}
                     </button>
@@ -571,7 +571,7 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                 </div>
                 <div className='row-span-2 w-full grid grid-cols-2 gap-x-2 px-1 relative'>
                     <span className='col-span-full text-white/70'>You can get this character using</span>
-                    <a href='#patron' className={`col-span-1 px-3 py-2.5 h-min flex items-center rounded-md gap-2 border-2 bg-gradient-to-tr cursor-pointer group ${ charac === 0 || charac === 1 || charac === 3 ? 'from-rock via-rock to-volcano border-volcano hover:from-black/90 hover:via-black/90 hover:to-rose-600 focus:from-black focus:via-black focus:to-rose-700 focus:border-rose-700 cursor-pointer group shadow-sm shadow-white/10 ease-in-out duration-200' : 'from-emerald-500 via-emerald-700 to-fog border-amber-200 hover:from-emerald-600 hover:via-emerald-800 hover:to-fog focus:from-emerald-700 focus:via-emerald-900 focus:to-fog focus:border-amber-300 cursor-pointer group shadow-sm shadow-white/10 ease-in-out duration-200'}`}>
+                    <a href='#patron' className={`col-span-1 px-3 py-2.5 h-min flex items-center rounded-md gap-2 border-2 cursor-pointer group ${ charac === 0 || charac === 1 || charac === 3 ? 'bg-gradient-to-tr from-rock via-rock to-volcano border-volcano hover:from-black/90 hover:via-black/90 hover:to-rose-600 focus:from-black focus:via-black focus:to-rose-700 focus:border-rose-700 group shadow-sm shadow-white/10 ease-in-out duration-200' : 'bg-gradient-to-tr from-emerald-500 via-emerald-700 to-fog border-amber-200 hover:from-emerald-600 hover:via-emerald-800 hover:to-fog focus:from-emerald-700 focus:via-emerald-900 focus:to-fog focus:border-amber-300 group shadow-sm shadow-white/10 ease-in-out duration-200'}`}>
                         { charac === 0 || charac === 1 || charac === 3 ? (
                             <MdMoneyOff className='text-2xl text-white/70 group-focus:text-white ease-in-out duration-200'/>
                         ) : (<GiCutDiamond className='text-2xl text-amber-200 group-focus:text-amber-300 ease-in-out duration-200'/>)} 
