@@ -6,9 +6,10 @@ import Image from "next/image";
 import { RiScales3Fill, RiTShirt2Fill, RiUserSmileFill, RiVipCrown2Fill, RiVolumeMuteLine, RiVolumeUpLine } from 'react-icons/ri';
 import { IoTicket } from 'react-icons/io5';
 import Equipment from './Equipment';
-import { GiStarShuriken } from 'react-icons/gi';
+import { GiCutDiamond, GiQueenCrown, GiStarShuriken } from 'react-icons/gi';
 import Stat from './Stat';
 import Info from './Info';
+import { MdMoneyOff } from 'react-icons/md';
 
 const characterInfo = [
     {
@@ -568,14 +569,24 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                         )}
                     </div>
                 </div>
-                <div className='row-span-2 w-full grid grid-cols-2 gap-x-2 relative'>
+                <div className='row-span-2 w-full grid grid-cols-2 gap-x-2 px-1 relative'>
                     <span className='col-span-full text-white/70'>You can get this character using</span>
-                    <button className='col-span-1 px-3 py-2.5 h-min flex items-center gap-2 bg-gradient-to-tr from-violet-400 via-violet-500 to-violet-400 rounded-md border-2 border-purple-600 cursor-pointer hover:from-violet-300 hover:via-violet-400 hover:to-violet-300 focus:from-violet-500 focus:via-violet-600 focus:to-violet-500 focus:border-purple-900 ease-in-out duration-200'>
-                        <RiVipCrown2Fill className='text-2xl text-amber-400'/>
-                        <span className='font-bold tracking-tight text-amber-300'>VIP+++</span> Royalty Pass
-                    </button>
+                    <a href='#patron' className={`col-span-1 px-3 py-2.5 h-min flex items-center rounded-md gap-2 border-2 bg-gradient-to-tr cursor-pointer group ${ charac === 0 || charac === 1 || charac === 3 ? 'from-rock via-rock to-volcano border-volcano hover:from-black/90 hover:via-black/90 hover:to-rose-600 focus:from-black focus:via-black focus:to-rose-700 focus:border-rose-700 cursor-pointer group shadow-sm shadow-white/10 ease-in-out duration-200' : 'from-emerald-500 via-emerald-700 to-fog border-amber-200 hover:from-emerald-600 hover:via-emerald-800 hover:to-fog focus:from-emerald-700 focus:via-emerald-900 focus:to-fog focus:border-amber-300 cursor-pointer group shadow-sm shadow-white/10 ease-in-out duration-200'}`}>
+                        { charac === 0 || charac === 1 || charac === 3 ? (
+                            <MdMoneyOff className='text-2xl text-white/70 group-focus:text-white ease-in-out duration-200'/>
+                        ) : (<GiCutDiamond className='text-2xl text-amber-200 group-focus:text-amber-300 ease-in-out duration-200'/>)} 
 
-                    <button className='col-span-1 px-3 py-2.5 h-min rounded-md flex items-center border-2 border-white/50 bg-gradient-to-tr gap-2 cursor-pointer text-white/70 font-semibold tracking-wide group hover:border-amber-300 hover:text-amber-300 focus:border-amber-500 focus:text-amber-700 focus:bg-white ease-in-out duration-200'><IoTicket className='text-white/70 text-2xl group-hover:text-amber-400 group-focus:text-amber-500 ease-in-out duration-200'/>Early Registration</button>
+                        <span className={`font-bold mr-1 ${charac === 0 || charac === 1 || charac === 3 ? 'text-white/70 group-focus:text-white' : 'text-amber-200 group-focus:text-amber-300'} ease-in-out duration-200`}>{ charac === 0 || charac === 1 || charac === 3 ? 'Free' : 'Premium'}</span> Patron
+                    </a>
+
+                    <a href={`${charac === 0 || charac === 1 || charac === 3 ? '#register' : '#patron'}`} className={`col-span-1 px-3 py-2.5 h-min rounded-md flex items-center border-2 ${charac === 0 || charac === 1 || charac === 3 ? 'border-white/50 text-white/70 hover:border-fuchsia-500 hover:text-fuchsia-300 focus:border-fuchsia-600 focus:text-fuchsia-400 focus:bg-white' : 'bg-gradient-to-tr from-amber-400 to-amber-800 border-volcano hover:from-amber-300 hover:to-amber-700 focus:from-amber-300 focus:to-amber-600 focus:border-rose-600'} gap-2 cursor-pointer font-semibold tracking-wide group shadow-sm shadow-white/10 ease-in-out duration-200`}>
+                        { charac === 0 || charac === 1 || charac === 3 ? (
+                            <IoTicket className='text-white/70 text-2xl group-hover:text-fuchsia-300 group-focus:text-fuchsia-400 ease-in-out duration-200'/>
+                        ) : (<GiQueenCrown className='text-2xl text-volcano group-focus:text-rose-600 ease-in-out duration-200'/>)} 
+                       
+                        {charac === 0 || charac === 1 || charac === 3 ? 'Early Registration' : (<span className='font-normal'><span className='font-extrabold mr-1 text-volcano group-focus:text-rose-600 ease-in-out duration-200'>Royalty</span> Patron</span>)}
+                        
+                    </a>
                 </div>
             </div>
         </div>

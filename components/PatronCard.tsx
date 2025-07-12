@@ -18,7 +18,7 @@ const PatronCard: React.FC<PatronCardProps> = ({ name, amount, gradient, include
             <h2 className={`h-full flex items-center font-protest-guerrilla text-2xl md:text-4xl`}>{name}</h2>
             <span className='w-full text-right font-medium'>${amount}/month</span>
         </span>
-        <span className='w-full text-sm font-manrope font-extralight text-left px-2 gap-2 flex flex-col'>
+        <span className='w-full text-sm font-manrope font-extralight text-left px-2 gap-1.5 flex flex-col'>
             {included.map((inc, i) => (
                 <p key={i} className='w-full flex justify-between'>
                     <span className='w-full'>{inc}</span> 
