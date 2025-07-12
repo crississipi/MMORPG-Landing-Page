@@ -569,7 +569,7 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                         )}
                     </div>
                 </div>
-                <div className='row-span-2 w-full grid grid-cols-2 gap-x-2 px-1 relative'>
+                <div className='row-span-2 w-full grid grid-cols-2 gap-2 px-1 relative'>
                     <span className='col-span-full text-white/70'>You can get this character using</span>
                     <a href='#patron' className={`col-span-1 px-3 py-2.5 h-min flex items-center rounded-md gap-2 border-2 cursor-pointer group ${ charac === 0 || charac === 1 || charac === 3 ? 'bg-gradient-to-tr from-rock via-rock to-volcano border-volcano hover:from-black/90 hover:via-black/90 hover:to-rose-600 focus:from-black focus:via-black focus:to-rose-700 focus:border-rose-700 group shadow-sm shadow-white/10 ease-in-out duration-200' : 'bg-gradient-to-tr from-emerald-500 via-emerald-700 to-fog border-amber-200 hover:from-emerald-600 hover:via-emerald-800 hover:to-fog focus:from-emerald-700 focus:via-emerald-900 focus:to-fog focus:border-amber-300 group shadow-sm shadow-white/10 ease-in-out duration-200'}`}>
                         { charac === 0 || charac === 1 || charac === 3 ? (
