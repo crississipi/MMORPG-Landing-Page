@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <section id='home' className='flex items-end justify-between overflow-hidden relative after:h-1/7 after:w-full after:absolute after:bottom-0 after:z-40 after:bg-gradient-to-t after:from-black  after:to-transparent'>
       {!isMobile ? (
-        <div className={`h-full w-auto flex flex-nowrap transition-transform`}>
+        <div className={`hidden md:flex h-full w-auto flex-nowrap transition-transform`}>
           {Array.from({ length: 6 }).map((_, i) => (
             <ImageDisplay 
               key={i}
@@ -54,7 +54,7 @@ const Hero = () => {
               animate={{ opacity:1, filter: "blur(0px)" }}
               exit={{ opacity:0, filter: "blur(10px)" }}
               transition={{ duration:0.5, ease:'easeInOut'}}
-              className='h-full w-full relative'
+              className='h-full w-full relative flex md:hidden'
             >
               <ImageDisplay 
                 charac={index}

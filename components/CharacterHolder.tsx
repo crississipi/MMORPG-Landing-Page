@@ -488,7 +488,7 @@ const CharacterHolder:React.FC<CharacterHolderProps> = ({ charac }) => {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -999, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.2 }}
-                    className='font-manrope text-lg font-extralight border-t border-white/20 w-full md:w-7/10 mt-2 mb-10 md:mb-5 text-nowrap md:text-wrap'>{characterInfo[charac].title}
+                    className='font-manrope text-sm md:text-lg font-extralight border-t border-white/20 w-full md:w-7/10 mt-2 mb-10 md:mb-5 text-nowrap md:text-wrap'>{characterInfo[charac].title}
                 </motion.h3>
                 <span className='col-span-full flex gap-1 items-center text-sm md:text-base pl-2 md:pl-0'><GiStarShuriken className='text-sm md:text-base'/>Base Stats</span>
                 <div className='w-full flex flex-col pl-5 pr-0 md:px-2 text-xs md:text-sm'>
